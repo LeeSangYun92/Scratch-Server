@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 
 
 router.use('/speed',require('./speed.js'));
-router.use('/off',require('./off.js'));
+
 
 
 module.exports = router;
