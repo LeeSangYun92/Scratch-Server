@@ -21,11 +21,23 @@ Scratch 3.0 과 모디를 직접적으로 제어하는 Python package를 연결�
 
 4. 무한루프를 돌며 시스템 IO를 기다리던 python 프로세스는 string을 읽어들이고 실행하여 MODI 모듈을 제어합니다.
 
+output 모듈은 4번까지의 과정으로 제어가 가능하나 input 모듈은 모듈의 상태를 받아 이를 vm쪽으로 response 시켜주는 과정이 필요합니다 (미완성)
+
+
 <hr>
 
 <b>확인된 오류</b>
 
-1. input 모듈의 경우 Scratch-vm 에서 request를 보내고 모듈에 대한 상태 정보를 받는 response가 필요한데 비동기 처리 방식으로 인해 response가 제대로   수신되지 처리되지 않아 코드상 제대로 구현이 되어있지 않습니다.
-  -> sync_request 모듈을 이용해 동기 방식으로 request를 처리하려 시도하였으나 webpack 으로 구동되는 gui 상에선 request를 한번만 보내려 하여도 끝없이 계속해서 보내는 현상이 일어났음
+1. input 모듈의 경우 Scratch-vm 에서 request를 보내고 모듈에 대한 상태 정보를 받는 response가 필요한데 비동기 처리 방식으로 인해 response가 제대로   수신처리되지 않아 코드상 제대로 구현이 되어있지 않습니다.<br>
+  -> sync_request 모듈을 이용해 동기 방식으로 request를 처리하려 시도하였으나 webpack 으로 구동되는 gui 상에선 request를 한번만 보내려 하여도 끝없이 계속해서 보내는 현상이 일어났음<br>
+  -> 만약 동기처리 방식이 아닌 비동기 처리 방식으로 처리하고 싶다면 bool 타입 scratch 블록을 정의하는 부분의 오픈소스를 수정하여 promise로 받는 등의 방식을 이용하면 될듯 함 
 
-2. speaker 모듈 사용시 speaker off 블록을 이용해 정지시키면 다음번 실행시 speaker 모듈에서 소리가 매우 작게 나는 현상이 일어나는데 이는 server 상의 오류라기 보단 python에 보내는 python 코드를 수정하거나 speaker 모듈을 실행시키는 블록에서 소리를 0 으로 하여 실행하면 다음번 실행시에도 제대로 실행됩니다. 
+2. speaker 모듈 사용시 speaker 끄기 블록을 이용해 정지시키면 다음번 실행시 speaker 모듈에서 소리가 매우 작게 나는 현상이 일어나는데 이는 server 상의 오류라기 보단 python에 보내는 python 코드를 수정해야 하거나 python package가 잘못된 것으로 보여집니다.<br>
+  speaker 끄기 블록이 아닌 speaker 켜기 블록에서 소리를 0 으로 하여 실행하면 다음번 실행시에도 제대로 실행됩니다.
+ 
+ <hr>
+ 
+<b>기타</b>
+ 
+ python package를 제가 개발한 것이 아니다 보니 서버에서 python에서 실행시킬 string이 제대로 사용되지 않았을 수 있습니다.
+ 이는 각각 api에서 
