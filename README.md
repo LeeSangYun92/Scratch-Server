@@ -39,6 +39,6 @@ output 모듈은 4번까지의 과정으로 제어가 가능하나 input 모듈�
  
 <b>기타</b>
  
- python package를 제가 개발한 것이 아니다 보니 서버에서 python에서 실행시킬 string이 제대로 사용되지 않았을 수 있습니다.
- <img src ="https://user-images.githubusercontent.com/33728833/44538097-5ec9e980-a73b-11e8-82d3-dfc17a21d49d.PNG" width=500>
- 이는 각각 api에서 위 사진의 부분을 수정해 주시면 됩니다!
+1. python package를 제가 개발한 것이 아니다 보니 서버에서 보내는 python에서 실행시킬 코드가 저장된 string이 정확하지 않을 수 있습니다.<br>
+ <img src ="https://user-images.githubusercontent.com/33728833/44538097-5ec9e980-a73b-11e8-82d3-dfc17a21d49d.PNG" width=500><br>
+ 이는 각각 api에서 위 사진의 부분을 수정해 주시면 됩니다! 
