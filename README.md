@@ -15,7 +15,7 @@ Scratch 3.0 과 모디를 직접적으로 제어하는 Python package를 연결�
 1. 서버 가동시 config/child.js에 의해 python-api-develop 파일 내 main.py 스크립트를 child-process로 실행시킵니다.<br>
   -> main.py 는 서버가 꺼질 때 까지 계속해서 무한루프를 돌면서 시스템 IO를 기다립니다.
   
-2. 브라우저에서 실행시킨 Scratch-gui에서 블록을 실행시키면 블록에 따라 Scratch-vm 내의 modi extension 에 정의된 request를 서버에 보내게 됩니다.
+2. 브라우저에서 실행시킨 Scratch-gui에서 블록을 실행시키면 블록에 따라 Scratch-vm에 정의된 request를 서버에 보내게 됩니다.
 
 3. 서버는 request를 받아 main.py 에서 실행할 python 코드를 string 형식으로 시스템 입력을 합니다.
 
